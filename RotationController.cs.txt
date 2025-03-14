@@ -1,0 +1,23 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class RotationController : MonoBehaviour
+{
+    public GameObject PlanetObject;
+    public Vector3 RotationVector;
+    public float RotationSpeed = 10f;  // Speed multiplier
+
+    private void Update()
+    {
+        if (PlanetObject != null)
+        {
+            // Rotate the planet around its own axis
+            PlanetObject.transform.Rotate(RotationVector * RotationSpeed * Time.deltaTime);
+        }
+        else
+        {
+            Debug.LogWarning("PlanetObject is not assigned!");
+        }
+    }
+}
